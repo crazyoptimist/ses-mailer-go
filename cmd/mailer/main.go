@@ -32,7 +32,7 @@ func main() {
 
 	f, err := excelize.OpenFile(filepath.Join(path, "emails.xlsx"))
 	if err != nil {
-		log.Fatalf("unable to open excel file: %v", err)
+		log.Fatalf("unable to open excel file: %v \n name the file \"emails.xlsx\"", err)
 		return
 	}
 	// Get all the rows in the Sheet1.
