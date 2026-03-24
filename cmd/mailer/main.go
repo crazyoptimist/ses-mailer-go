@@ -67,7 +67,12 @@ func main() {
 	EMAIL_SUBJECT := viper.GetString("EMAIL_SUBJECT")
 	EMAIL_TEXT_BODY := viper.GetString("EMAIL_TEXT_BODY")
 
-	for _, row := range rows {
+	for i, row := range rows {
+		// Skip the header row
+		if i == 0 {
+			continue
+		}
+
 		input := ComposeEmail(FROM_EMAIL, []string{REPLY_TO_EMAIL}, []string{row[0]}, EMAIL_SUBJECT, EMAIL_TEXT_BODY)
 
 		// Send the email
